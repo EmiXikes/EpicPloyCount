@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+                    
+                    >
+
+  <FontFamily x:Key="Epic.Fonts.Terminator">pack://application:,,,/xImageResources;component/FONTS/#Terminator Real NFI</FontFamily>
+  
+  
+</ResourceDictionary>

@@ -1,0 +1,600 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    
+    <Style x:Key="EpicFocusStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2" SnapsToDevicePixels="true" 
+                               Stroke="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}" 
+                               StrokeThickness="1" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Epic.Controls.Button.0" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource EpicFocusStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Normal}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}" 
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          TextElement.Foreground ="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"
+                                          />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource Epic.Colors.BackGround.Normal}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource Epic.Colors.BackGround.Normal}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Epic.Colors.Content.Disabled}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource Epic.Colors.Content.Disabled}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Epic.Controls.Buttons.CloseButton" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Border.OpacityMask>
+                            <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.CloseCross}"/>
+                        </Border.OpacityMask>
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.SelectedPress}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Epic.Controls.Buttons.IconButton.0" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Epic.Controls.Buttons.IconButton.1" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+                            BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid Background="{TemplateBinding Background}" Margin="2">
+                            <Grid.OpacityMask>
+                                <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Checked}"/>
+                            </Grid.OpacityMask>
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Epic.Controls.Buttons.ToggleButton.0" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource EpicFocusStyle}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            SnapsToDevicePixels="true" Background="{TemplateBinding Background}" Margin="0">
+                        <Border.OpacityMask>
+                            <!-- Default icon-->
+                            <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Unchecked}"/>
+                        </Border.OpacityMask>
+                        <Grid>
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" 
+                                          RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                        </Grid>
+
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" 
+                                    Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Background" TargetName="border" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="OpacityMask" TargetName="border">
+                                <Setter.Value>
+                                    <!--Checked Icon-->
+                                    <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Checked}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="border"
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.SelectedHover}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="true"/>
+                                <Condition Property="IsPressed" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="border"
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.SelectedPress}"/>
+                        </MultiTrigger>
+
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Epic.Controls.Checkbox.0" TargetType="{x:Type CheckBox}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource EpicFocusStyle}"/>
+        <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource OptionMark.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="checkBoxBorder"
+                                Margin="1"
+                                Grid.Column="0"
+                                Width="15" Height="15" 
+                                Background="{TemplateBinding Foreground}"
+                                >
+                            <Border.OpacityMask>
+                                <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Unchecked}"/>
+                            </Border.OpacityMask>
+
+                        </Border>
+                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" 
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+ 
+                                          TextElement.Foreground="{TemplateBinding Foreground}" 
+                                          VerticalAlignment="Center" 
+                                          Margin="3,1,1,1" 
+                                          HorizontalAlignment="Left"
+                                          Height="15"
+                                          
+                                          />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasContent" Value="true">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}"/>
+                            <Setter Property="Padding" Value="4,-1,0,0"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="OpacityMask" TargetName="checkBoxBorder">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Checked}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="Background" TargetName="checkBoxBorder" 
+                                    Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+
+                        </Trigger>
+
+
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter Property="OpacityMask" TargetName="checkBoxBorder">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="{DynamicResource Epic.Images.Controls.Checkbox.Unchecked}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
+    <Style x:Key="Epic.Controls.Groupbox" TargetType="{x:Type GroupBox}">
+        <Setter Property="BorderBrush" Value="#D5DFE5"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="6"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="6"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="4" Grid.Column="0" CornerRadius="4" Grid.Row="1" Grid.RowSpan="3"/>
+                        <Border BorderBrush="{DynamicResource Epic.Colors.BackGround.Hover}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="4" CornerRadius="4" Grid.Row="1" Grid.RowSpan="3">
+                            <Border.OpacityMask>
+                                <MultiBinding ConverterParameter="7" Converter="{StaticResource BorderGapMaskConverter}">
+                                    <Binding ElementName="Header" Path="ActualWidth"/>
+                                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+                                </MultiBinding>
+                            </Border.OpacityMask>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                <Border BorderBrush="{DynamicResource Epic.Colors.BackGround.Hover}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2"/>
+                            </Border>
+                        </Border>
+                        <Border x:Name="Header" Grid.Column="1" Padding="3,1,3,0" Grid.Row="0" Grid.RowSpan="2">
+                            <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ContentPresenter Grid.ColumnSpan="2" Grid.Column="1" Margin="{TemplateBinding Padding}" Grid.Row="2" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+
+
+    <Style x:Key="Epic.Controls.TextBox.0" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Variant.0 }"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" 
+                                      HorizontalScrollBarVisibility="Hidden" 
+                                      VerticalScrollBarVisibility="Hidden"
+                                      
+                                      />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.SelectedPress }"/>
+                            <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Variant.2}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="{x:Type TextBoxBase}" TargetType="{x:Type TextBoxBase}">
+        <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Variant.0}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Variant.2}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.SelectedPress}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="{x:Type Hyperlink}" TargetType="{x:Type Hyperlink}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="true">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="Epic.Controls.RichTextBox.0" TargetType="{x:Type RichTextBox}">
+        <Style.Resources>
+            <Style x:Key="{x:Type FlowDocument}" TargetType="{x:Type FlowDocument}">
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+            </Style>
+            <Style x:Key="{x:Type Hyperlink}" BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="{x:Type Hyperlink}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Foreground" Value="Blue"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Style.Resources>
+        <Setter Property="MinWidth" Value="10"/>
+        <Style.BasedOn>
+            <StaticResource ResourceKey="{x:Type TextBoxBase}"/>
+        </Style.BasedOn>
+    </Style>
+
+      
+    <Style x:Key="Epic.Controls.RadioButton.0" TargetType="{x:Type RadioButton}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource EpicFocusStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource Epic.Colors.BackGround.Normal}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,2,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Grid x:Name="markGrid" Margin="2">
+                                <Ellipse x:Name="optionMark" Fill="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" MinWidth="6" MinHeight="6" Opacity="0"/>
+                            </Grid>
+                        </Border>
+                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasContent" Value="true">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}"/>
+                            <Setter Property="Padding" Value="4,-1,0,0"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="radioButtonBorder" Value="{DynamicResource Epic.Colors.BackGround.Hover}"/>
+                            <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+                            <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Hover}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+
+                            <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+                            <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+
+                            <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+                            <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Pressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Opacity" TargetName="optionMark" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="radioButtonBorder" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter Property="Opacity" TargetName="optionMark" Value="0.56"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

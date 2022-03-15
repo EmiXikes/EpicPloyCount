@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Orange.Normal" Color="#FFca4b16"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Orange.Hover" Color="#FFFF2300"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Orange.Disabled" Color="#FFD86C3F"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Orange.Selected" Color="#FFFF2300"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Orange.Pressed" Color="#FFE69A7A"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.Normal" Color="#FF268BD3"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.Hover" Color="#FF0372F7"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.Disabled" Color="#FF81A9C5"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.Selected" Color="#FF0372F7"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.Pressed" Color="#FF81A9C5"/>
+     
+    
+    
+    
+        
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Yellow.0" Color="#FFb58902"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Red.0" Color="#FFdb322f"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Magenta.0" Color="#FFd33683"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Violet.0" Color="#FF6c71c3"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Blue.0" Color="#FF268bd3"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Cyan.0" Color="#FF29a198"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Green.0" Color="#FF859a01"/>
+    
+    
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.Normal" Color="#FF00718D"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.Hover" Color="#FF019CAC"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.Disabled" Color="#FF00718D"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.Selected" Color="#FFFF2300"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.Pressed" Color="#FFFF2300"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.SelectedHover" Color="#FFFF9F90"/>
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.0.SelectedPress" Color="#FFA41700"/>
+    
+    
+
+</ResourceDictionary>

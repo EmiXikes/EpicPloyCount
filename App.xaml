@@ -1,0 +1,20 @@
+﻿<Application x:Class="EpicPloyCount.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EpicPloyCount"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Epic.Resources.Colors.EpicLight.xaml"/>
+                <ResourceDictionary Source="/Resources/Epic.Resources.Colors.EpicAccents.xaml"/>
+
+                <ResourceDictionary Source="/Resources/Epic.Resources.Controls.Buttons.xaml"/>
+	            <ResourceDictionary Source="/Resources/Epic.Resources.Fonts.xaml"/>
+                <ResourceDictionary Source="/Resources/Epic.Resources.Images.xaml"/>
+                <ResourceDictionary Source="/Resources/Epic.Resources.Style.UI.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+         
+    </Application.Resources>
+</Application>

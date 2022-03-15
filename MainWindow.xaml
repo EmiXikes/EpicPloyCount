@@ -1,0 +1,142 @@
+﻿<Window x:Class="EpicPloyCount.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EpicPloyCount"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        AllowsTransparency="True"
+        Topmost="{Binding TopMost}" 
+        ResizeMode="NoResize" WindowStyle="None" 
+        Foreground="{x:Null}" 
+        Height="50" MaxHeight="50" MinHeight="50" Background="{x:Null}" SizeToContent="Width"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+
+        >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+    </Window.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding WindowLoaded}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+
+    <Border Background="{DynamicResource Epic.Colors.BackGround.Normal}" 
+            BorderBrush="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}"
+            BorderThickness="4"
+            CornerRadius="10" 
+            MouseLeftButtonDown="Border_MouseLeftButtonDown"
+            >
+        <Grid>
+
+            <DockPanel>
+                <StackPanel>
+                    <TextBlock Text="{Binding DisplayedDetailedResult}" Foreground="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" TextAlignment="Center"   />
+                    <TextBlock x:Name="ResultTextItem" Width="100" Text="{Binding DisplayedResult}" Foreground="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" 
+                       VerticalAlignment="Center" FontSize="20" Margin="0" HorizontalAlignment="Center" TextAlignment="Center" >
+                        
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding ValueToClipboard}" CommandParameter="{Binding Text, ElementName=ResultTextItem}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        
+                        
+                    </TextBlock>
+                    <TextBlock Text="NOKOPĒTS!" 
+                               Foreground="{DynamicResource Epic.Colors.Accent.Red.0}" 
+                               Background="{DynamicResource Epic.Colors.BackGround.Normal}" 
+                               FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0" TextAlignment="Center" FontWeight="Bold"
+                               Visibility="{Binding CopyTagVisible, Converter={StaticResource BoolToVisConverter}}"
+                               />
+
+                </StackPanel>
+
+                <DockPanel Visibility="{Binding IsControlsVisible,Converter={StaticResource BoolToVisConverter}}">
+                    <Button Content="+" Width="30" Height="30" 
+                            ToolTip="Pievienot mērījumu esošajam rezultātam" 
+                            Command="{Binding ContinueMeasurementSequence}"
+                        Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" 
+                            HorizontalAlignment="Left" Margin="5,0,0,0" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/BigPlus.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Button Content="N" Width="30" Height="30" 
+                            ToolTip="Sākt jaunu mērījumu"
+                            Command="{Binding StartNew}"
+                            Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" HorizontalAlignment="Left" Margin="5,0,0,0" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/StartOver.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Button Content="SETS" Width="30" Height="30"
+                            ToolTip="Saglabāt pievienojamo garumu"
+                            Command="{Binding AddMeasurementToStatic}"
+                            Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" HorizontalAlignment="Left" Margin="5,0,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/SPlus.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Button Content="CLRS" Width="30" Height="30" 
+                            ToolTip="Nodzēst pievienojamo garumu"
+                            Command="{Binding ClearStatic}"
+                            Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" HorizontalAlignment="Left" Margin="5,0,0,0" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/SMinus.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Button Content="CLR" Width="30" Height="30" 
+                            ToolTip="Nodzēst visu"
+                            Command="{Binding ClearAll}"
+                            Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" HorizontalAlignment="Left" Margin="5,0,0,0" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/BigCross.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Button Content="WRT" Width="30" Height="30" 
+                            ToolTip="Ierakstīt vērtību bloka atribūtā"
+                            Command="{Binding WriteAttribute}"
+                            Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" HorizontalAlignment="Left" Margin="5,0" Foreground="{x:Null}" Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" BorderBrush="{x:Null}">
+                        <Button.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/12.png"/>
+                        </Button.OpacityMask>
+                    </Button>
+                    <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Background="{DynamicResource Epic.Colors.Accent.Mix.1.Normal}" Margin="0,-4,-4,0" Width="15" Height="15">
+                        <Grid.OpacityMask>
+                            <ImageBrush ImageSource="Resources/IMG/xRound.png"/>
+                        </Grid.OpacityMask>
+                        <Button Width="15" Height="15" VerticalAlignment="Top" Margin="0" 
+                                Command="{Binding CloseApplication}"
+                                Style="{DynamicResource Epic.Controls.Buttons.IconButton.0}" 
+                                BorderBrush="{x:Null}" Foreground="{x:Null}" 
+                                Background="{DynamicResource Epic.Colors.BackGround.Normal}" >
+                            <Button.OpacityMask>
+                                <ImageBrush ImageSource="Resources/IMG/IMG.Epic.Controls.Close.png">
+                                    <ImageBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.5" ScaleY="0.5"/>
+                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ImageBrush.RelativeTransform>
+                                </ImageBrush>
+                            </Button.OpacityMask>
+                        </Button>
+
+                    </Grid>
+                </DockPanel>
+
+            </DockPanel>
+        </Grid>
+
+
+
+
+    </Border>
+</Window>

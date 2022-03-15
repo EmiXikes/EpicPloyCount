@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            >
+
+
+
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Normal" Color="#FF012630"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Hover" Color="#FF073743"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Disabled" Color="#FF44646C"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Selected" Color="#FF012630"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Pressed" Color="#FF012630"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Variant.0" Color="#FF031F27"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Variant.1" Color="#FF02151B"/>
+    <SolidColorBrush x:Key="Epic.Colors.BackGround.Variant.2" Color="#FF000000"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.Content.Normal" Color="#FFD1ECF3"/>
+    <SolidColorBrush x:Key="Epic.Colors.Content.Hover" Color="#FF9FC9D4"/>
+    <SolidColorBrush x:Key="Epic.Colors.Content.Disabled" Color="#FF2A545F"/>
+    <SolidColorBrush x:Key="Epic.Colors.Content.Selected" Color="#FF181818"/>
+    <SolidColorBrush x:Key="Epic.Colors.Content.Pressed" Color="#FF181818"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.Content.MonoChrome.Normal" Color="#FFD6D6D6"/>
+
+    <SolidColorBrush x:Key="Epic.Colors.Accent.Mix.1.Normal" Color="#FF005A71"/>
+
+</ResourceDictionary>
